@@ -952,7 +952,7 @@ a:hover {
  
             .sub-containers {
                 flex-wrap: wrap;
-				gap: 10px;
+				gap: 20px;
                 justify-content: space-between;
 				margin-bottom: 35px;
             }
