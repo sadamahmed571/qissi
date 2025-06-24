@@ -979,10 +979,11 @@ a:hover {
         }
 
         .description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #1b64a3;
             margin-bottom: 10px;
 			text-align: center;
+			font-weight: 400;
         }
 
         .browse-btn {
