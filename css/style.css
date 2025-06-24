@@ -944,7 +944,7 @@ a:hover {
    }
    
     .main-container {
-            width: 100%;
+            width: 98%;
             padding: 0;
 			font-family:Tajawal;
         }
@@ -952,7 +952,7 @@ a:hover {
  
             .sub-containers {
                 flex-wrap: wrap;
-				gap: 20px;
+				gap: 10px;
                 justify-content: space-between;
 				margin-bottom: 35px;
             }
