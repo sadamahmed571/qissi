@@ -663,7 +663,86 @@ a:hover {
     border-color: var(--bs-pagination-active-border-color);
 }
 
+
+
+
  @media (max-width: 768px) {
+	 	 
+	 .img-logo {
+    width: 195px;  
+   }
+	   .navbar svg {
+    width: 19px;
+	height:19px;
+	margin-right: 8px;
+   }
+   .nav-logo  {
+	 width: 33px;
+	height:33px;
+	margin-top:5px;
+   }
+    .nav-toggler {
+            position: fixed;
+            top: 18px;
+            left: 15px;
+            background-color:rgba(255, 255, 255, 0);
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* حاوية التنقل (Nav) */
+        .nav-sidebar {
+            position: fixed;
+            top: 0;
+            left: -150px; /* مخفية في البداية */
+            width: 150px;
+            height: 100vh;
+            background-color:rgba(22, 28, 39, 0.93);
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+    .nav-menu {
+            list-style: none;
+            padding: 15px 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+         
+        }
+
+        .nav-menu li {
+            margin: 12px 0;
+			
+        }
+
+        .nav-menu a {
+           color:#dec79e;
+		   font-weight:500;
+		   font-family:Tajawal;
+           margin-right: 15px;
+	 	  text-align:right;
+	       text-decoration:none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #fff;
+        }
+
+        /* زر الإغلاق */
+        .close-btn {
+            background: none;
+            border: none;
+            color: #ff5e5e;
+            font-size: 15px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+	 
             .sub-containers {
                 flex-wrap: wrap;
 				gap: 15px;
@@ -724,6 +803,7 @@ a:hover {
             .academic-decoration {
                 font-size: 5rem;
             }
+			
  }
 
 
@@ -744,7 +824,7 @@ a:hover {
    }
     .nav-toggler {
             position: fixed;
-            top: 15px;
+            top: 18px;
             left: 15px;
             background-color:rgba(255, 255, 255, 0);
             border: none;
