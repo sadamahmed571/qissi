@@ -679,11 +679,11 @@ a:hover {
    .nav-logo  {
 	 width: 33px;
 	height:33px;
-	margin-top:5px;
+	margin-top:7px;
    }
     .nav-toggler {
             position: fixed;
-            top: 18px;
+            top: 15px;
             left: 15px;
             background-color:rgba(255, 255, 255, 0);
             border: none;
@@ -820,11 +820,11 @@ a:hover {
    .nav-logo  {
 	 width: 33px;
 	height:33px;
-	margin-top:5px;
+	margin-top:7px;
    }
     .nav-toggler {
             position: fixed;
-            top: 18px;
+            top: 15px;
             left: 15px;
             background-color:rgba(255, 255, 255, 0);
             border: none;
