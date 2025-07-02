@@ -768,7 +768,9 @@ a:hover {
 
 
  @media (max-width: 768px) {
-	 	 
+	 .banner {
+    margin-top:90px;
+}	 
 	 .img-logo {
     width: 180px;  
    }
@@ -871,7 +873,7 @@ a:hover {
     max-width:320px ;
 	border-radius: 45px;
 	text-align:center;	 
-	opacity: 85%;
+	opacity: 80%;
 
    } 
 	 
@@ -992,7 +994,9 @@ a:hover {
 
 
 @media only screen and (max-width: 600px)and (max-width: 480px)  {
-
+ .banner {
+    margin-top:85px;
+}	 
  .img-logo {
     width: 180px;  
    }
@@ -1079,7 +1083,7 @@ a:hover {
     max-width:270px ;
 	border-radius: 45px;
 	text-align:center;	 
-	opacity: 85%;
+	opacity: 80%;
 
    } 
    
