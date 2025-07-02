@@ -1179,14 +1179,14 @@ a:hover {
         }
 			 .info-card {           
             padding: 20px;
-			max-width:370px;
+			 width:370px;
 		 
 			 margin-bottom:1px;	
         }
 		
 		.info-card2 {
            padding: 20px;
-		   max-width:370px;
+		   width:370px;
 			 
 			 margin-bottom:1px;	
 			 margin:1px;
