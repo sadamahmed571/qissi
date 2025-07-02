@@ -1176,7 +1176,7 @@ a:hover {
             margin-left: 12px;
         }
 			 .info-card {           
-            padding: 17px;
+            padding: 20px;
 			width: 99%;
 			 margin-bottom:1px;	
         }
@@ -1189,7 +1189,7 @@ a:hover {
         }
 			
             .thesis-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 			
 			.detail-item i {           
@@ -1198,7 +1198,7 @@ a:hover {
             margin-top: 3px;
         }	
             .detail-text {
-               font-size: 1rem;
+               font-size: 0.95rem;
 				text-align: right;
 				margin-right: 10px;
             }
