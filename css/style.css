@@ -1084,22 +1084,22 @@ a:hover {
    } 
    
   .display-1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 800 ;
    font-family:Tajawal;
   margin-right:15px;
-    margin-top:55px;
+    margin-top:65px;
    }
    
    
    
    .banner-p {
     max-width:315px ;	
-	font-size: 0.85rem  ;
-	padding:15px;
+	font-size: 0.9rem  ;
+	padding:12px;
 	font-weight:400;
-	line-height:1.8;
-	margin-top:10px;
+	line-height:1.9;
+	margin-top:5px;
    }
    
     .main-container {
