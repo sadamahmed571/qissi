@@ -962,10 +962,10 @@ a:hover {
             margin-top: 3px;
         }	
             .thesis-title {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             .detail-text {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
 				text-align: right;
 				margin-right: 10px;
             }
@@ -1184,14 +1184,21 @@ a:hover {
 		.info-card2 {
            padding: 20px;
 			width: 99%;
-			 margin-bottom:1px;	;
+			 margin-bottom:1px;	
+			 margin:1px;
         }
 			
             .thesis-title {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
+			
+			.detail-item i {           
+            font-size:1rem;
+            margin-right: 35px;
+            margin-top: 3px;
+        }	
             .detail-text {
-               font-size: 0.8rem;
+               font-size: 1rem;
 				text-align: right;
 				margin-right: 7px;
             }
