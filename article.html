@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات - عرض المقال</title>
+    <link rel="stylesheet" href="article-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التقدم في القراءة -->
+    <div class="reading-progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- الحاوية الرئيسية -->
+    <div class="container">
+        <!-- الرأس -->
+        <header class="header">
+            <div class="header-content">
+                <button class="back-btn" onclick="goBack()">
+                    <i class="fas fa-arrow-right"></i>
+                    العودة للمقالات
+                </button>
+                <h1 class="main-title">المقالات</h1>
+            </div>
+        </header>
+
+        <!-- حاوية المقال -->
+        <main class="article-container">
+            <!-- معلومات المقال -->
+            <div class="article-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="articleDate">تاريخ النشر</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span id="articleCategory">المجال</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="readingTime">وقت القراءة</span>
+                </div>
+            </div>
+
+            <!-- عنوان المقال -->
+            <h2 class="article-title" id="articleTitle">عنوان المقال</h2>
+
+            <!-- مقدمة المقال -->
+            <div class="article-intro" id="articleIntro">
+                مقدمة المقال تظهر هنا بخط أكبر وأكثر بروزاً من باقي النص
+            </div>
+
+            <!-- محتوى المقال -->
+            <div class="article-content" id="articleContent">
+                <!-- محتوى المقال سيتم تحميله من JavaScript -->
+            </div>
+
+            <!-- أزرار التنقل بين المقالات -->
+            <div class="article-navigation">
+                <button class="nav-btn prev-article" id="prevArticle" onclick="navigateArticle('prev')">
+                    <i class="fas fa-chevron-right"></i>
+                    <span>المقال السابق</span>
+                </button>
+                <button class="nav-btn next-article" id="nextArticle" onclick="navigateArticle('next')">
+                    <span>المقال التالي</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <!-- حاوية المشاركة -->
+            <div class="share-container">
+                <h3 class="share-title">شارك المقال</h3>
+                
+                <!-- أزرار المشاركة -->
+                <div class="share-buttons">
+                    <button class="share-btn copy-btn" onclick="copyArticle()">
+                        <i class="fas fa-copy"></i>
+                        نسخ النص
+                    </button>
+                    
+                    <button class="share-btn facebook-btn" onclick="shareOnFacebook()">
+                        <i class="fab fa-facebook-f"></i>
+                        فيسبوك
+                    </button>
+                    
+                    <button class="share-btn whatsapp-btn" onclick="shareOnWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        واتساب
+                    </button>
+                    
+                    <button class="share-btn twitter-btn" onclick="shareOnTwitter()">
+                        <i class="fab fa-twitter"></i>
+                        تويتر
+                    </button>
+                    
+                    <button class="share-btn telegram-btn" onclick="shareOnTelegram()">
+                        <i class="fab fa-telegram-plane"></i>
+                        تيليجرام
+                    </button>
+                    
+                    <button class="share-btn link-btn" onclick="copyLink()">
+                        <i class="fas fa-link"></i>
+                        نسخ الرابط
+                    </button>
+                </div>
+
+                <!-- معلومات الكاتب -->
+                <div class="author-info">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-details">
+                        <span class="author-name">د.عبدالله القيسي</span>
+                        <span class="author-title">كاتب المقال</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- تذييل الصفحة -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 جميع الحقوق محفوظة</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- رسالة التأكيد -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">تم النسخ بنجاح!</span>
+    </div>
+
+    <!-- تحميل ملفات JavaScript -->
+    <script src="js/article-data.js"></script>
+    <script src="js/article-functions.js"></script>
+</body>
+</html>
+
