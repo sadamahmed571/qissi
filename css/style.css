@@ -1179,15 +1179,15 @@ a:hover {
         }
 			 .info-card {           
             padding: 20px;
-			 width:370px;
-		 position:relative;
+			max-width:370px;
+			width: 100%;
 			 margin-bottom:1px;	
         }
 		
 		.info-card2 {
            padding: 20px;
-		   width:370px;
-			 position:relative;
+		   max-width:370px;
+			width: 100%;
 			 margin-bottom:1px;	
 			 margin:1px;
         }
