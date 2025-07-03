@@ -596,13 +596,14 @@ p.a {
             text-decoration: none;
         }
         .btn-download {
-            background: linear-gradient(180deg, #b6d7df, #bfd1e3);
-            color: #071320;
+            background: linear-gradient(180deg, #1d558f, #1d778d);
+            color:#eff5f6;
+			
         }
          
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background:#eff5f6;
+           color:#0f1e2e;
         }
         .btn:active {
             transform: translateY(1px);
@@ -977,7 +978,9 @@ a:hover {
 			 color: #eff5f6;
 			 text-align: right;
         }
-			
+			 .btn-download {
+            font-size: 1rem;
+        }
             .btn {
                 min-width: 100%;
             }
@@ -1214,7 +1217,9 @@ a:hover {
 			 color: #eff5f6;
 			 text-align: right;
         }
-			
+			 .btn-download {
+            font-size: 1rem;
+        }
             .btn {
                 min-width: 100%;
             }
