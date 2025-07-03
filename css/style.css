@@ -409,6 +409,7 @@ p.a {
             min-width: 300px;
             display: flex;
             align-items: center;
+		border: 1px solid #0f1e2e;
             justify-content: space-between;
         }
 
