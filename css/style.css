@@ -208,7 +208,7 @@ h2,h3,h4,h5,h6 {
 	text-decoration:none; 
 }
 .navicons3 :hover {	
-	color: #eff5f6;
+	color: #f2f7f8;
 }
 
 .marquee {
@@ -290,7 +290,7 @@ h2,h3,h4,h5,h6 {
         }
 
         .nav-menu a {
-           color:#eff5f6;
+           color:#f2f7f8;
 		   font-weight:400;
 		   font-family:Tajawal;
            margin-right: 30px;
@@ -328,7 +328,7 @@ h2,h3,h4,h5,h6 {
 
 .img-3 {
     max-width:350px ;
-	 background-color:#eff5f6;
+	 background-color:#f2f7f8;
     color: #0d161f;
 	font-size: 1rem  ;
 	font-family:Tajawal;
@@ -344,7 +344,7 @@ h2,h3,h4,h5,h6 {
     font-weight: 800 ;
    font-family:Tajawal;
 	margin-top:70px;
-	color: #eff5f6;
+	color: #f2f7f8;
 }
 
 .banner-p {
@@ -409,7 +409,6 @@ p.a {
             min-width: 300px;
             display: flex;
             align-items: center;
-		border: 1px solid #0f1e2e;
             justify-content: space-between;
         }
 
@@ -479,11 +478,11 @@ p.a {
             text-align: center;
             margin-top: 25px;
             position: relative;
-			color: #eff5f6;
+			color: #f2f7f8;
 			 line-height:2.5;
         }
         .title i {
-            color: #eff5f6;
+            color: #f2f7f8;
             margin-left: 15px;
         }
         .content {
@@ -535,11 +534,11 @@ p.a {
         .thesis-title {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #eff5f6;
+            color: #f2f7f8;
             margin-bottom: 20px;
 			margin-right: 20px;
 			margin-left: 20px;
-            border-right: 3px solid #eff5f6;
+            border-right: 3px solid #f2f7f8;
             padding-right: 15px;
 			line-height:1.7;
         }
@@ -549,7 +548,7 @@ p.a {
             align-items: flex-start;
         }
         .detail-item i {
-            color: #eff5f6;
+            color: #f2f7f8;
             font-size: 1.2rem;
             margin-right: 70px;
             margin-top: 3px;
@@ -557,14 +556,14 @@ p.a {
         .detail-text {
             font-size: 1rem;
             line-height: 1.6;
-			 color: #eff5f6;
+			 color: #f2f7f8;
 			 margin-right: 10px;
         }
 		
 		 .detail-text2 {
             font-size: 1.3rem;
             line-height: 1.9;
-			 color: #eff5f6;
+			 color: #f2f7f8;
 			 margin-right: 10px;
 			 text-align: right;
         }
@@ -598,12 +597,12 @@ p.a {
         }
         .btn-download {
             background: linear-gradient(180deg, #1d558f, #1d778d);
-            color:#eff5f6;
+            color:#f2f7f8;
 			
         }
          
         .btn:hover {
-            background:#eff5f6;
+            background:#f2f7f8;
            color:#0f1e2e;
         }
         .btn:active {
@@ -944,7 +943,7 @@ a:hover {
 			 line-height:1;
         }
         .title i {
-            color: #eff5f6;
+            color: #f2f7f8;
             margin-left: 12px;
         }
 			 .info-card {           
@@ -976,7 +975,7 @@ a:hover {
 			.detail-text2 {
             font-size: 1rem;
             line-height: 2.2;
-			 color: #eff5f6;
+			 color: #f2f7f8;
 			 text-align: right;
         }
 			 .btn-download {
@@ -1178,7 +1177,7 @@ a:hover {
 			 line-height:1;
         }
         .title i {
-            color: #eff5f6;
+            color: #f2f7f8;
             margin-left: 12px;
         }
 			 .info-card {           
@@ -1215,7 +1214,7 @@ a:hover {
 			.detail-text2 {
             font-size: 1rem;
             line-height: 2.2;
-			 color: #eff5f6;
+			 color: #f2f7f8;
 			 text-align: right;
         }
 			 .btn-download {
