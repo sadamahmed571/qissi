@@ -747,41 +747,45 @@
 
 
 
+
+
 /* --- For screens 480px and smaller (Mobile Phones) --- */
 @media (max-width: 480px) {
     .container3,
     .container2,
     .marquee-section {
         max-width: 100%;
-        min-width: unset; /* Remove min-width for true responsiveness */
+        min-width: unset; 
         margin: 0 auto;
-        padding: 0 10px; /* Add some padding for content */
+        padding: 0 10px; 
+		background-color: #000; 
     }
 
     .container3 {
-        width: 100%;
-        height: 80px;
-        margin-top: 60px;
-        border-radius: 0 0 20px 20px;
+        width: 97%;
+        height: 70px;
+        margin-top: 80px;
+        border-radius: 0 0 14px 14px;
     }
 
     .container3 h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-top: 5px;
         text-align: center;
     }
 
     .marquee-section {
-        margin-bottom: 15px;
-        height: 200px; /* Adjust height for smaller screens */
+        margin-bottom: 30px;
+		margin-top: 20px;
+        height: 200px;
         max-width: 100%;
         width: 100%;
     }
 
     .marquee-item {
-        min-width: 280px; /* Smaller min-width for items */
-        min-height: 180px;
-        padding: 15px;
+        min-width: 330px; 
+        min-height: 175px;
+        padding: 20px;
     }
 
     .marquee-item-header {
@@ -789,14 +793,14 @@
     }
 
     .marquee-item-title {
-        font-size: 14px;
-        margin-top: 10px;
-        line-height: 1.7;
+        font-size: 16px;
+        margin-top: 18px;
+        line-height: 1.9;
     }
 
     .marquee-item-intro {
-        font-size: 12px;
-        line-height: 1.7;
+        font-size: 14px;
+        line-height: 1.8;
         padding-left: 0;
         padding-right: 0;
     }
@@ -815,78 +819,83 @@
         min-width: unset;
     }
 
-    .Important-Articals {
+      .Important-Articals {
         height: auto;
-        max-width: 95%;
-        padding: 15px;
-        direction: ltr;
-        margin: 0 auto;
-        flex-direction: column;
+        max-width:97%;
+        padding: 15px; 
+        direction: ltr; 
+        margin: 0 auto; 
+		display: flex;
+    flex-direction: column;
     }
 
+ 
     .Important-Articals-top {
-        flex-direction: column; /* Stack image and text vertically */
-        align-items: center;
-        max-width: 100%;
-        height: auto;
-        margin-top: 10px;
+        flex-direction:row;  
+        align-items: center; 
+        max-width: 355px; 
+        height: 140px;   
     }
-
+ 
     .Important-Articals-left {
-        gap: 5px;
-        text-align: center;
-        width: 100%;
+        gap: 10px; 
+        text-align: right;  
+        width: 100%; 
     }
 
     .Important-Articals-meta {
-        direction: rtl;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-left: 0;
+       direction: rtl;
+    flex-wrap: wrap;
     }
 
     .Important-Articals-meta span {
-        font-size: 10px;
-        padding-right: 0;
+        font-size: 10px; 
+        padding-right: 0;  
+        justify-content: center; 
     }
 
+ 
     .Important-Articals-title {
-        font-size: 16px;
+        font-size: 18px; 
         padding-left: 0;
-        text-align: center;
-        line-height: 1.5;
+        text-align: right; 
+        line-height: 1.8; 
     }
 
+ 
     .Important-Articals-image-container {
-        margin: 0;
+        margin : 0; 
     }
 
-    .Important-Articals-image {
-        width: 80px;
-        height: 110px;
+    .Important-Articals-image {       
+       	width:  85px;
+        height: 140px;   
     }
 
+ 
     .Important-Articals-intro-section {
-        padding: 15px;
-        text-align: center;
+        padding: 15px; 
+        text-align: center; 
     }
 
     .Important-Articals-intro {
-        font-size: 14px;
-        line-height: 2;
-        max-width: 100%;
-        margin: 0 auto;
-        text-align: center;
+        font-size: 15px; 
+        line-height: 2.5; 
+        max-width: 100%; 
+        margin: 0 auto; 
+        text-align: center; 
+		padding: 8px; 
     }
 
+
     .Important-Articals-actions {
-        margin-bottom: 10px;
+        margin-bottom: 15px; 
     }
 
     .read-more-btn {
-        padding: 6px 15px;
-        font-size: 12px;
-        min-height: 35px;
+        padding: 8px 18px;
+        font-size: 14px; 
+        min-height: 40px; 
     }
 
     .slider-section {
