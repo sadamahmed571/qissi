@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <title>د.عبدالله القيسي - سلاسل المقالات</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+   <!-- Google Web Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <!--style sheet-->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/SingleArticle.css">
+  
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+
+</style>
+</head>
+
+<body>
+  
+
+  <!-- رأس الصفحة -->
+  <div class="series-header">
+    <div class="container">
+      <div class="text-center">
+        <h1 id="seriesTitle"> </h1>
+        <a href="articals.html" class="back-to-series">
+          <i class="fas fa-arrow-right"></i> العودة إلى المقالات
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- معلومات السلسلة -->
+    <div class="series-info" id="seriesInfo">
+      <!-- سيتم ملء المحتوى ديناميكياً -->
+    </div>
+
+    <!-- التنقل بين مقالات السلسلة -->
+    <div class="articles-navigation" id="articlesNavigation">
+      <h3 class="articles-nav-title">مقالات السلسلة</h3>
+      <div class="articles-nav-list" id="articlesNavList">
+        <!-- سيتم ملء المحتوى ديناميكياً -->
+      </div>
+    </div>
+
+    <!-- المقال الحالي -->
+    <div class="current-article" id="currentArticle">
+      <!-- سيتم ملء المحتوى ديناميكياً -->
+    </div>
+
+    <!-- أزرار التنقل -->
+    <div class="navigation-controls" id="navigationControls">
+      <!-- سيتم ملء المحتوى ديناميكياً -->
+    </div>
+  </div>
+
+    <!-- حاوية المشاركة -->
+    <div class="share-container">
+        <h3 class="share-title">شارك المقال</h3>
+        
+        <!-- القسم الأول: مشاركة النص -->
+        <div class="share-section">
+            <h4 class="share-section-title">مشاركة النص</h4>
+            <div class="share-buttons">
+                <button class="share-btn copy-text-btn" onclick="copyArticleText()">
+                    <i class="fas fa-copy"></i>
+                    نسخ النص
+                </button>
+                <button class="share-btn whatsapp-text-btn" onclick="shareTextOnWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    واتساب
+                </button>
+                <button class="share-btn twitter-text-btn" onclick="shareTextOnTwitter()">
+                    <i class="fab fa-twitter"></i>
+                    تويتر
+                </button>
+                <button class="share-btn telegram-text-btn" onclick="shareTextOnTelegram()">
+                    <i class="fab fa-telegram-plane"></i>
+                    تيليجرام
+                </button>
+            </div>
+        </div>
+
+        <!-- القسم الثاني: مشاركة الرابط -->
+        <div class="share-section">
+            <h4 class="share-section-title">مشاركة الرابط</h4>
+            <div class="share-buttons">
+                <button class="share-btn copy-link-btn" onclick="copyArticleLink()">
+                    <i class="fas fa-link"></i>
+                    نسخ الرابط
+                </button>
+                <button class="share-btn facebook-link-btn" onclick="shareLinkOnFacebook()">
+                    <i class="fab fa-facebook-f"></i>
+                    فيسبوك
+                </button>
+                <button class="share-btn messenger-link-btn" onclick="shareLinkOnMessenger()">
+                    <i class="fab fa-facebook-messenger"></i>
+                    ماسنجر
+                </button>
+                <button class="share-btn whatsapp-link-btn" onclick="shareLinkOnWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    واتساب
+                </button>
+                <button class="share-btn telegram-link-btn" onclick="shareLinkOnTelegram()">
+                    <i class="fab fa-telegram-plane"></i>
+                    تيليجرام
+                </button>
+                <button class="share-btn twitter-link-btn" onclick="shareLinkOnTwitter()">
+                    <i class="fab fa-twitter"></i>
+                    تويتر
+                </button>
+            </div>
+        </div>
+
+        <!-- معلومات الكاتب -->
+        <div class="author-info">
+            <div class="author-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="author-details">
+                <span class="author-name">د.عبدالله القيسي</span>
+                <span class="author-title">كاتب المقال</span>
+            </div>
+        </div>
+    </div>
+  <!-- تذييل الصفحة -->
+  <footer id="footer" class="bg-black text-white py-5">
+    <div class="container-sm">
+      <div class="row g-md-5 my-5">
+        <div class="col-md-4">
+          <div class="info-box">
+            <img src="images/logo-2.png" class="img-fluid">
+            <p class="py-4">
+              Subscribe to newsletter to get some updates related with branding, designs and more.
+            </p>
+            <div class="social-links">
+              <!-- روابط التواصل الاجتماعي -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li><a class="text-decoration-none text-white" href="index.html">Home</a></li>
+                <li><a class="text-decoration-none text-white" href="#">About</a></li>
+                <li><a class="text-decoration-none text-white" href="team.html">Team</a></li>
+                <li><a class="text-decoration-none text-white" href="single-portfolio.html">Portfolio</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <h6><a class="text-decoration-none text-white" href="blog.html">Blog</a></h6>
+              <h6><a class="text-decoration-none text-white" href="contact.html">Contact</a></h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <p>Just feel free to contact if you wanna collaborate with me, or simply have a conversation.</p>
+          <h3><a href="mailto:contact@yourwebsite.com" class="text-white text-decoration-none">contact@yourwebsite.com</a></h3>
+        </div>
+      </div>
+      <div class="row">
+        <p>©2024 Jessica. Free HTML Template by <a href="https://templatesjungle.com/" class="text-white" target="_blank">TemplatesJungle</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- إشعار منبثق -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">تم تحميل المقال بنجاح!</span>
+  </div>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/ArticalsSeriesData.js"></script>
+  <script src="js/ArticlalsSeries-functions.js"></script>
+  <script src="js/nav.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  
+</body>
+</html>
+
+
+
+
+

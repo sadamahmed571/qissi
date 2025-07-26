@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات - عرض المقال</title>
+    <link rel="stylesheet" href="css/SingleArticle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التقدم في القراءة -->
+    <div class="reading-progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- الحاوية الرئيسية -->
+    <div class="container">
+        <!-- الرأس -->
+        <header class="header">
+            <div class="header-content">
+                <button class="back-btn" onclick="window.location.href='articals.html'">
+                    <i class="fas fa-arrow-right"></i>
+                    العودة للمقالات
+                </button>
+                <h1 class="main-title">المقالات</h1>
+            </div>
+        </header>
+
+        <!-- حاوية المقال -->
+        <main class="article-container">
+            <!-- معلومات المقال -->
+            <div class="article-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="articleDate">تاريخ النشر</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span id="articleCategory">المجال</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="readingTime">وقت القراءة</span>
+                </div>
+            </div>
+
+            <!-- عنوان المقال -->
+            <h2 class="article-title" id="articleTitle">عنوان المقال</h2>
+
+            <!-- مقدمة المقال -->
+            <div class="article-intro" id="articleIntro">
+                مقدمة المقال تظهر هنا بخط أكبر وأكثر بروزاً من باقي النص
+            </div>
+
+            <!-- محتوى المقال -->
+            <div class="article-content" id="articleContent">
+                <!-- محتوى المقال سيتم تحميله من JavaScript -->
+            </div>
+
+
+            <!-- حاوية الكلمات المفتاحية (Tags) -->
+            <div class="article-tags" id="articleTags">
+                <h3 class="tags-title">الكلمات المفتاحية:</h3>
+                <div class="tags-list" id="tagsList">
+                    <!-- سيتم ملء الكلمات المفتاحية ديناميكياً -->
+                </div>
+            </div>
+
+            <!-- حاوية المراجع -->
+            <div class="article-references" id="articleReferences">
+                <h3 class="references-title">المراجع:</h3>
+                <ul class="references-list" id="referencesList">
+                    <!-- سيتم ملء المراجع ديناميكياً -->
+                </ul>
+            </div>
+
+
+
+            <!-- أزرار التنقل بين المقالات -->
+            <div class="article-navigation">
+                <button class="nav-btn prev-article" id="prevArticle" onclick="navigateArticle('prev')">
+                    <i class="fas fa-chevron-right"></i>
+                    <span>المقال السابق</span>
+                </button>
+                <button class="nav-btn next-article" id="nextArticle" onclick="navigateArticle('next')">
+                    <span>المقال التالي</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <!-- حاوية المشاركة -->
+    <div class="share-container">
+        <h3 class="share-title">شارك المقال</h3>
+        <div class="d-flex align-items-center">
+                                    <h5 class="mb-0 me-3">Share:</h5>
+                                    <i class="fab fa-facebook-f link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
+                                    <i class="btn fab bi-twitter link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
+                                    <i class="btn fab fa-instagram link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
+                                    <i class="btn fab fa-linkedin-in link-hover btn btn-square rounded-circle border-primary text-dark"></i>
+                                </div>
+        <!-- القسم الأول: مشاركة النص -->
+        <div class="share-section">
+            <h4 class="share-section-title">مشاركة النص</h4>
+            <div class="share-buttons">
+                <button class="share-btn copy-text-btn" onclick="copyArticleText()">
+                    <i class="fas fa-copy"></i>
+                    نسخ النص
+                </button>
+                <button class="share-btn whatsapp-text-btn" onclick="shareTextOnWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    واتساب
+                </button>
+                <button class="share-btn twitter-text-btn" onclick="shareTextOnTwitter()">
+                    <i class="fab fa-twitter"></i>
+                    تويتر
+                </button>
+                <button class="share-btn telegram-text-btn" onclick="shareTextOnTelegram()">
+                    <i class="fab fa-telegram-plane"></i>
+                    تيليجرام
+                </button>
+            </div>
+        </div>
+
+        <!-- القسم الثاني: مشاركة الرابط -->
+        <div class="share-section">
+            <h4 class="share-section-title">مشاركة الرابط</h4>
+            <div class="share-buttons">
+                <button class="share-btn copy-link-btn" onclick="copyArticleLink()">
+                    <i class="fas fa-link"></i>
+                    نسخ الرابط
+                </button>
+                <button class="share-btn facebook-link-btn" onclick="shareLinkOnFacebook()">
+                    <i class="fab fa-facebook-f"></i>
+                    فيسبوك
+                </button>
+                <button class="share-btn messenger-link-btn" onclick="shareLinkOnMessenger()">
+                    <i class="fab fa-facebook-messenger"></i>
+                    ماسنجر
+                </button>
+                <button class="share-btn whatsapp-link-btn" onclick="shareLinkOnWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    واتساب
+                </button>
+                <button class="share-btn telegram-link-btn" onclick="shareLinkOnTelegram()">
+                    <i class="fab fa-telegram-plane"></i>
+                    تيليجرام
+                </button>
+                <button class="share-btn twitter-link-btn" onclick="shareLinkOnTwitter()">
+                    <i class="fab fa-twitter"></i>
+                    تويتر
+                </button>
+            </div>
+        </div>
+
+        <!-- معلومات الكاتب -->
+        <div class="author-info">
+            <div class="author-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="author-details">
+                <span class="author-name">د.عبدالله القيسي</span>
+                <span class="author-title">كاتب المقال</span>
+            </div>
+        </div>
+    </div>
+        </main>
+
+        <!-- تذييل الصفحة -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 جميع الحقوق محفوظة</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- رسالة التأكيد -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">تم النسخ بنجاح!</span>
+    </div>
+
+    <!-- تحميل ملفات JavaScript -->
+	<script src="js/article1functions.js"></script>
+    <script src="js/articles-data.js"></script>
+    <script src="js/article-functions.js"></script>
+	<script src="js/ImportantArticalsData.js"></script>
+</body>
+</html>
