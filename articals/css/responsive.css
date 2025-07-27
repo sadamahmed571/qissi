@@ -758,7 +758,6 @@
         min-width: unset; 
         margin: 0 auto;
         padding: 0 10px; 
-		background-color: #000; 
     }
 
     .container3 {
@@ -775,7 +774,7 @@
     }
 
     .marquee-section {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
 		margin-top: 20px;
         height: 200px;
         max-width: 100%;
@@ -786,6 +785,7 @@
         min-width: 330px; 
         min-height: 175px;
         padding: 20px;
+		 border: 1px solid #e7eeef;
     }
 
     .marquee-item-header {
@@ -793,7 +793,7 @@
     }
 
     .marquee-item-title {
-        font-size: 16px;
+        font-size: 17px;
         margin-top: 18px;
         line-height: 1.9;
     }
@@ -808,10 +808,11 @@
     .main-container4 {
         max-width: 100%;
         width: 100%;
-        margin-bottom: 40px;
-        gap: 15px;
+        margin-bottom: 90px;
+        gap: 10px;
         flex-direction: column;
         align-items: center;
+		margin-right:1%;
     }
 
     .Important-Articals-section {
@@ -821,12 +822,17 @@
 
       .Important-Articals {
         height: auto;
-        max-width:97%;
+        max-width:96%;
         padding: 15px; 
         direction: ltr; 
         margin: 0 auto; 
 		display: flex;
     flex-direction: column;
+	 background: #0f1e2e;
+	background-image: url("../../images/888.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     }
 
  
@@ -834,7 +840,7 @@
         flex-direction:row;  
         align-items: center; 
         max-width: 355px; 
-        height: 140px;   
+        height: 135px;   
     }
  
     .Important-Articals-left {
@@ -856,10 +862,10 @@
 
  
     .Important-Articals-title {
-        font-size: 18px; 
+        font-size: 19px; 
         padding-left: 0;
         text-align: right; 
-        line-height: 1.8; 
+        line-height: 1.9; 
     }
 
  
@@ -868,8 +874,8 @@
     }
 
     .Important-Articals-image {       
-       	width:  85px;
-        height: 140px;   
+       	width:  80px;
+        height: 135px;   
     }
 
  
@@ -879,12 +885,12 @@
     }
 
     .Important-Articals-intro {
-        font-size: 15px; 
+        font-size: 16px; 
         line-height: 2.5; 
         max-width: 100%; 
         margin: 0 auto; 
         text-align: center; 
-		padding: 8px; 
+		padding: 7px; 
     }
 
 
@@ -896,18 +902,19 @@
         padding: 8px 18px;
         font-size: 14px; 
         min-height: 40px; 
+		line-height: 2; 
     }
 
     .slider-section {
-        width: 95%;
+        width: 96%;
         padding-top: 20px;
-        height: 450px;
+        height: 500px;
         margin: 0 auto;
     }
 
     .swiper {
         max-width: 100%;
-        height: 450px;
+        height:500px;
     }
 
     .swiper-pagination {
@@ -915,37 +922,39 @@
     }
 
     .swiper-slide {
-        padding: 20px;
+        padding: 30px;
         justify-content: flex-end;
         align-items: center;
     }
 
     .swiper-slide h2 {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         margin-right: 0;
         text-align: center;
+		line-height:2;
     }
 
     .swiper-slide-meta {
         margin-right: 0;
-        margin-top: 3px;
-        margin-bottom: 8px;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .swiper-slide span {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .swiper-slide a {
         margin: 10px auto 20px auto;
         padding: 5px 20px;
-        font-size: 0.75rem;
+        font-size: 1rem;
         min-height: 30px;
     }
 
     .articles-grid-con {
         min-width: 100%;
         padding: 0 5px;
+		margin-right:1%;
     }
 
     .articles-grid-layout {
@@ -960,44 +969,48 @@
     }
 
     .main-article-content {
-        padding: 15px;
+        padding: 25px;
         border-radius: 15px;
-        max-height: unset; /* Allow content to dictate height */
-        max-width: 100%; /* Ensure it takes full width */
+        max-height: unset;  
+        max-width: 100%; 
     }
 
     .main-article-title {
-        margin-bottom: 10px;
-        font-size: 24px;
+        font-size: 28px;
         text-align: center;
+		padding-left: 45px;
     }
-
+    .main-article-title i {
+        padding-left: 6px;
+    }
     .main-article-span {
-        font-size: 11px;
+        font-size: 13px;
         padding-right: 5px;
         margin-right: 10px;
         text-align: center;
+		margin-bottom: 10px;
     }
 
     .main-article-span i {
-        padding-left: 2px;
+        padding-left: 3px;
     }
 
     .main-article-intro {
-        font-size: 14px;
+        font-size: 16px;
         margin-right: 0;
-        line-height: 1.8;
+        line-height: 2;
         text-align: center;
     }
 
     .main-article-btn {
-        font-size: 12px;
+        font-size: 14px;
         margin-left: auto;
-        margin-right: auto; /* Center the button */
-        max-height: 35px;
+        margin-right: auto; 
+		margin-top: 15px;
+        max-height: 45px;
         min-height: unset;
-        display: block; /* Make it a block element to center with margin: auto */
-        width: fit-content; /* Ensure button width fits content */
+        display: block; 
+        width: fit-content; 
     }
 
     .main-article-btn i {
@@ -1005,14 +1018,14 @@
     }
 
     .side-articles-container {
-        padding-top: 10px;
+        padding-top: 25px;
         margin: 0 auto;
-        max-width: 95%;
+        max-width: 98%;
         gap: 25px;
     }
 
     .side-article {
-        padding: 15px;
+        padding: 25px;
         height: auto;
     }
 
@@ -1023,87 +1036,89 @@
     }
 
     .side-article-title i {
-        margin-left: 4px;
+        margin-left: 5px;
     }
 
     .side-article-span {
-        font-size: 11px;
+        font-size: 14px;
     }
 
     .side-article-span i {
-        margin-left: 2px;
+        margin-left: 3px;
     }
 
     .side-article-intro {
-        font-size: 14px;
-        line-height: 1.6;
-        margin-top: 0;
+        font-size: 15px;
+        line-height: 2;
+        margin-top: 3px;
         text-align: center;
-        padding: 0;
+        padding: 5px;
     }
 
     .read-btn3 {
         padding: 4px 15px;
-        font-size: 11px;
+        font-size: 13px;
         min-height: 24px;
     }
 
     .read-btn3 i {
-        padding-right: 2px;
+        padding-right: 4px;
     }
 
     .articles-grid2 {
-        display: grid;
-        grid-template-columns: 1fr; /* Single column for small screens */
-        min-width: 100%;
-        gap: 10px;
+         display: grid;
+       grid-template-columns: repeat(2, minmax(120px, 1fr));  
+        min-width: 97%;
+        gap: 13px;
         margin-right: 0;
         padding-bottom: 30px;
-        margin-top: 0;
+        margin-top: 30px;
         justify-content: center;
     }
 
     .article-card2 {
-        width: 95%; /* Adjust width to fit better */
-        min-height: 90px;
+        width: 99%; 
+        min-height: 80px;
+		height: 85%;
         justify-content: center;
         align-items: center;
-        margin: 0 auto; /* Center the cards */
-        flex-direction: column; /* Stack title and image if applicable */
+        margin: 0 auto; 
+        flex-direction: column;  
     }
 
     .article-card2-image {
-        display: none; /* Hide image for very small cards if space is tight */
+        display: none;  
     }
 
     .article-card2-title {
-        font-size: clamp(14px, 4vw, 16px); /* Adjust clamp for smaller range */
+        font-size: clamp(11px, 4vw, 14px);  
         margin-top: 5px;
         text-align: center;
-        line-height: 1.8;
-        padding: 5px;
+        line-height: 1.9;
+        padding: 3px;
     }
 
     .all-articles-container {
-        grid-template-columns: 1fr; /* Single column layout */
-        gap: 15px;
+       display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap:10px;       
         margin-right: 0;
         margin-left: 0;
-        padding: 0 10px; /* Add padding to the container */
+        padding: 0 10px;  
     }
 
     .search-filter-section {
-        margin-bottom: 20px;
+        margin-bottom: 27px;
     }
 
     .search-filter-container {
         padding: 0 10px;
-        flex-direction: column; /* Stack search and filter vertically */
-        gap: 10px;
+        flex-direction: column; 
+        gap: 15px;
     }
 
     .search-box {
-        max-width: 100%; /* Full width for search box */
+        max-width: 80%;  
         width: 100%;
     }
 
@@ -1115,32 +1130,40 @@
         padding: 10px 35px 10px 10px;
         font-size: 14px;
         min-height: 30px;
-        width: 100%; /* Ensure input takes full width */
+        width: 100%;  
     }
 
     .filter-dropdown select {
         padding: 10px 35px 10px 10px;
         font-size: 14px;
         min-height: 30px;
-        width: 100%; /* Ensure select takes full width */
+        width: 100%; 
     }
 
     .article-item {
         width: 100%;
         max-width: 100%;
-        min-height: 300px; /* Slightly reduce min-height */
+        min-height: 308px; 
         margin: 0 auto;
         padding: 15px;
     }
 
     .article-item-title {
         margin-bottom: 10px;
-        line-height: 1.6;
-        font-size: clamp(16px, 4vw, 18px); /* Adjust clamp for smaller screens */
+		padding-top: 5px;
+        line-height: 1.9;
+        font-size: clamp(14px, 4vw, 16px); 
+		text-align: center;
     }
+	
+	.article-item-meta {
+    display: flex;
+    justify-content: flex-start;
+
+}
 
     .article-item-date {
-        font-size: clamp(9px, 2.5vw, 11px);
+        font-size: clamp(9px, 2.5vw,11px);
     }
 
     .article-item-category {
@@ -1149,18 +1172,19 @@
 
     .article-item-intro {
         line-height: 2;
-        font-size: clamp(12px, 3.5vw, 14px);
+		padding: 2px;
+        font-size: clamp(11px, 3vw, 13px);
     }
 
     .pagination {
-        gap: clamp(3px, 1vw, 5px);
-        margin-top: clamp(15px, 3vw, 20px);
+        gap: clamp(5px, 1vw, 7px);
+        margin-top: clamp(12px, 3vw, 17px);
     }
 
     .pagination-btn {
         padding: clamp(5px, 1.2vw, 10px) clamp(10px, 1.8vw, 15px);
-        min-height: 40px;
-        min-width: 30px;
-        font-size: clamp(10px, 1.2vw, 13px);
+        min-height: 45px;
+        min-width: 35px;
+        font-size: clamp(12px, 2vw, 15px);
     }
 }
