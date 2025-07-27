@@ -219,9 +219,27 @@ function loadArticlesSeries() {
     }
 }
 
-// تحميل جميع المقالات
+// تحميل جميع المقالات (تم تعديله ليشمل كل المقالات من المصادر الثلاثة!)
 function loadAllArticles() {
-    filteredArticles = [...articlesData];
+    // مقالات البيانات الأساسية
+    const normalArticles = Array.isArray(articlesData) ? articlesData : [];
+
+    // مقالات البيانات الهامة
+    const importantArticles = Array.isArray(ImportantArticalsData) ? ImportantArticalsData : [];
+
+    // كل المقالات بداخل جميع السلاسل
+    const seriesArticles = Array.isArray(ArticalsSeriesData)
+        ? ArticalsSeriesData.flatMap(series =>
+            Array.isArray(series.articles) ? series.articles : []
+        )
+        : [];
+    
+    // دمج جميع المقالات معًا
+    filteredArticles = [
+        ...normalArticles,
+        ...importantArticles,
+        ...seriesArticles
+    ];
     displayArticles();
 }
 
@@ -313,8 +331,9 @@ function changePage(page) {
 function searchArticles() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const categoryFilter = document.getElementById('categoryFilter').value;
-    
-    filteredArticles = articlesData.filter(article => {
+
+    // تم التعديل: اجعل البحث دائماً على filteredArticles (المجموعة المدمجة)
+    filteredArticles = filteredArticles.filter(article => {
         const matchesSearch = article.title.toLowerCase().includes(searchTerm) ||
                             article.intro.toLowerCase().includes(searchTerm);
         const matchesCategory = categoryFilter === 'all' || article.category === categoryFilter;
