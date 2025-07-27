@@ -1,5 +1,10 @@
 // وظائف الصفحة - articles-functions.js
 
+// استيراد البيانات من الملفات الثلاثة
+import { articlesData } from './articles-data.js';
+import { ImportantArticalsData } from './ImportantArticalsData.js';
+import { ArticalsSeriesData } from './ArticalsSeriesData.js';
+
 // متغيرات عامة
 let currentPage = 1;
 const articlesPerPage = 6;
@@ -69,7 +74,7 @@ function loadFeaturedArticle() {
     const featuredArticle = ImportantArticalsData[0];
     const shortIntro = featuredArticle.intro.length > 200 ? 
         featuredArticle.intro.substring(0, 203) + '...' : featuredArticle.intro;
-    const categoryClass = getCategoryClass(featuredArticle.category); // Updated to add category class
+    const categoryClass = getCategoryClass(featuredArticle.category);
 
     featuredArticleContainer.innerHTML = `
         <div class="Important-Articals-top">
@@ -117,7 +122,7 @@ function updateSwiperContent() {
             const article = sliderArticles[index];
             const shortIntro = article.intro.length > 150 ? 
                 article.intro.substring(0, 150) + '...' : article.intro;
-            const categoryClass = getCategoryClass(article.category); // Updated to add category class
+            const categoryClass = getCategoryClass(article.category);
             
             const slideContent = slide.querySelector('div');
             if (slideContent) {
@@ -147,7 +152,7 @@ function loadArticlesSeries() {
     const mainSeries = ArticalsSeriesData[0];
     const mainShortDescription = mainSeries.description.length > 200 ? 
         mainSeries.description.substring(0, 200) + '...' : mainSeries.description;
-    const mainCategoryClass = getCategoryClass(mainSeries.category); // الحصول على فئة CSS
+    const mainCategoryClass = getCategoryClass(mainSeries.category);
     
     mainArticleContainer.innerHTML = `
         <div class="main-article">
@@ -170,12 +175,12 @@ function loadArticlesSeries() {
 
     // المقالات الجانبية الصغيرة (السلاسل 2-4)
     let sideArticlesHTML = '';
-    const sideArticles = ArticalsSeriesData.slice(1, 4); // أخذ 3 مقالات جانبية (السلاسل 2-4)
+    const sideArticles = ArticalsSeriesData.slice(1, 4);
     
     sideArticles.forEach((series, index) => {
         const shortDescription = series.description.length > 80 ? 
             series.description.substring(0, 80) + '...' : series.description;
-        const sideCategoryClass = getCategoryClass(series.category); // الحصول على فئة CSS
+        const sideCategoryClass = getCategoryClass(series.category);
         
         sideArticlesHTML += `
             <div class="side-article">
@@ -199,7 +204,7 @@ function loadArticlesSeries() {
     // القسم الثاني: عرض السلاسل من رقم 5 إلى نهاية العدد
     if (articlesGrid2 && ArticalsSeriesData.length > 4) {
         let grid2HTML = '';
-        const remainingSeries = ArticalsSeriesData.slice(4); // من السلسلة رقم 5 إلى النهاية
+        const remainingSeries = ArticalsSeriesData.slice(4);
         
         remainingSeries.forEach((series, index) => {
             const shortDescription = series.description.length > 120 ? 
@@ -221,7 +226,20 @@ function loadArticlesSeries() {
 
 // تحميل جميع المقالات
 function loadAllArticles() {
-    filteredArticles = [...articlesData];
+    // استخراج المقالات من سلاسل المقالات في ArticalsSeriesData
+    const seriesArticles = ArticalsSeriesData.flatMap(series => series.articles);
+
+    // دمج جميع المقالات من المصادر الثلاثة
+    filteredArticles = [
+        ...articlesData,
+        ...ImportantArticalsData,
+        ...seriesArticles
+    ];
+
+    // إزالة التكرارات بناءً على معرف المقال (id)
+    filteredArticles = [...new Map(filteredArticles.map(article => [article.id, article])).values()];
+
+    // عرض المقالات
     displayArticles();
 }
 
@@ -313,8 +331,19 @@ function changePage(page) {
 function searchArticles() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const categoryFilter = document.getElementById('categoryFilter').value;
-    
-    filteredArticles = articlesData.filter(article => {
+
+    // دمج جميع المقالات للبحث
+    const seriesArticles = ArticalsSeriesData.flatMap(series => series.articles);
+    const allArticles = [
+        ...articlesData,
+        ...ImportantArticalsData,
+        ...seriesArticles
+    ];
+
+    // إزالة التكرارات
+    const uniqueArticles = [...new Map(allArticles.map(article => [article.id, article])).values()];
+
+    filteredArticles = uniqueArticles.filter(article => {
         const matchesSearch = article.title.toLowerCase().includes(searchTerm) ||
                             article.intro.toLowerCase().includes(searchTerm);
         const matchesCategory = categoryFilter === 'all' || article.category === categoryFilter;
