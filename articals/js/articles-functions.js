@@ -220,64 +220,43 @@ function loadArticlesSeries() {
 }
 
 // تحميل جميع المقالات
-// تعريف المصفوفة التي سيتم عرضها
-let filteredArticles = [];
-let currentPage = 1;
-const articlesPerPage = 6;
-
-// تحميل جميع المقالات من المصادر الثلاثة
 function loadAllArticles() {
-    filteredArticles = [
-        ...ArticalsSeriesData,
-        ...ImportantArticalsData,
-        ...articlesData
-    ].sort((a, b) => new Date(b.date) - new Date(a.date)); // فرز حسب الأحدث
-
+    filteredArticles = [...articlesData];
     displayArticles();
-    setupPagination();
 }
 
-// عرض المقالات في الصفحة الحالية
+// عرض المقالات مع التقسيم إلى صفحات
 function displayArticles() {
+    const container = document.getElementById('allArticlesContainer');
+    if (!container) return;
+
     const startIndex = (currentPage - 1) * articlesPerPage;
     const endIndex = startIndex + articlesPerPage;
-    const articlesToDisplay = filteredArticles.slice(startIndex, endIndex);
+    const articlesToShow = filteredArticles.slice(startIndex, endIndex);
 
-    const container = document.getElementById("articlesContainer");
-    container.innerHTML = "";
-
-    articlesToDisplay.forEach(article => {
-        container.innerHTML += `
-            <div class="article-card">
-                <h3>${article.title}</h3>
-                <p>${article.intro}</p>
-                <span>🗂️ ${article.category} — ⏱️ ${article.readingTime}</span>
+    let articlesHTML = '';
+    
+    articlesToShow.forEach(article => {
+        const shortIntro = article.intro.length > 100 ? 
+            article.intro.substring(0, 130) + '...' : article.intro;
+        
+        const categoryClass = getCategoryClass(article.category);
+        
+        articlesHTML += `
+            <div class="article-item" onclick="navigateToArticle(${article.id})">
+                <h3 class="article-item-title"><i class='far fa-file-alt'></i>  ${article.title}</h3>
+                <p class="article-item-intro">${shortIntro}</p>
+                <div class="article-item-meta">
+                    <span class="article-item-category ${categoryClass}"><i class="fas fa-tag"></i> ${article.category}</span>
+                    <span class="article-item-date"><i class="fas fa-clock"></i>وقت القراءة :  ${article.readingTime}</span>                   
+                </div>
             </div>
         `;
     });
+    
+    container.innerHTML = articlesHTML;
+    updatePagination();
 }
-
-// إعداد الترقيم للصفحات
-function setupPagination() {
-    const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
-    const paginationContainer = document.getElementById("pagination");
-    paginationContainer.innerHTML = "";
-
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement("button");
-        button.textContent = i;
-        button.classList.toggle("active", i === currentPage);
-        button.addEventListener("click", () => {
-            currentPage = i;
-            displayArticles();
-            setupPagination();
-        });
-        paginationContainer.appendChild(button);
-    }
-}
-
-// تنفيذ التحميل عند بداية الصفحة
-window.addEventListener("DOMContentLoaded", loadAllArticles);
 
 // تحديث أزرار التنقل بين الصفحات
 function updatePagination() {
