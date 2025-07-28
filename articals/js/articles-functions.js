@@ -28,7 +28,7 @@ function loadMarqueeArticles() {
     let marqueeHTML = '';
     
     // استخدام 10 مقالات من articles-data.js و 5 مقالات من ImportantArticalsData.js
-    const articlesFromData = articlesData.slice(0, 15); // أول 10 مقالات من articles-data.js
+    const articlesFromData = articlesData.slice(15, 30); // أول 10 مقالات من articles-data.js
     const importantArticles = ImportantArticalsData.slice(0, 5); // أول 5 مقالات من ImportantArticalsData.js
     
     // دمج المقالات (بحد أقصى 15 مقال)
