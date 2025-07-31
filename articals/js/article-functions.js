@@ -56,13 +56,29 @@ function updateTags(tags) {
 // Update references
 function updateReferences(references) {
     const referencesList = document.getElementById('referencesList');
+
     if (referencesList && Array.isArray(references)) {
+        // إزالة المحتوى القديم
         referencesList.innerHTML = '';
-        references.forEach(ref => {
-            const li = document.createElement('li');
-            li.textContent = ref;
-            referencesList.appendChild(li);
-        });
+
+        // التحقق هل هناك مراجع فعلاً
+        if (references.length > 0) {
+            // إنشاء عنصر العنوان فقط إذا كانت هناك مراجع
+            const heading = document.createElement('h3');
+            heading.className = 'references-title';
+            heading.innerHTML = '<i class="fa fa-book" aria-hidden="true"></i> المراجع :';
+            referencesList.appendChild(heading);
+
+            // إنشاء قائمة المراجع
+            const ul = document.createElement('ul');
+            references.forEach(ref => {
+                const li = document.createElement('li');
+                li.textContent = ref;
+                ul.appendChild(li);
+            });
+
+            referencesList.appendChild(ul);
+        }
     }
 }
 // Update navigation buttons
