@@ -217,15 +217,16 @@ body {
 
 /* مقدمة المقال */
 .article-intro {
-    font-size: 1.35rem;
+    font-size: 1.28rem;
     font-weight: 520;
 	 font-family: 'Tajawal', sans-serif;
     color: #00485e;
     line-height: 2.1;
     margin-bottom: 30px;
     padding: 25px;
+	border-radius:10px 0 0 10px;
     background: #eaf3f6;
-    border-right: 5px solid #4899b2;
+    border-right: 8px solid #4899b2;
     position: relative;
 }
 
@@ -269,10 +270,12 @@ body {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #e7dfe0;
+	border-radius:10px ;
     position: relative;
 	font-family: 'Tajawal', sans-serif;
 	font-weight:490;	
 	padding:10px; 
+	line-height:1.8; 
 }
 
 .article-content h1::before {
@@ -301,6 +304,7 @@ body {
     padding-right: 20px  ;
      padding: 4px  ;	
 	border-left: 5px solid #073c4c;
+	border-radius:0 10px 10px 0;
     align-items: center;
 	background: #ecf1f3; 
 	font-family: 'Tajawal', sans-serif;
@@ -373,11 +377,13 @@ body {
     list-style: none;
     padding-left: 20px;
     margin-bottom: 60px ;
+	line-height: 1.7;
 }
 
 .article-content ol {
     padding-left: 20px;
     margin-bottom: 60px;
+	line-height: 1.7;
 }
 
 .article-content ul li {
@@ -387,6 +393,7 @@ body {
     margin-bottom: 10px;
     color: #0f1e2e;
     font-size: 1.28em;
+	line-height: 1.7;
 }
 
 .article-content ul li::before {
@@ -395,6 +402,7 @@ body {
     right: -20px;
     color:#e14d6c;
     font-size: 1.5rem;
+line-height: 1.7;
 }
 
 .article-content ol li {
@@ -404,6 +412,7 @@ body {
     margin-bottom: 10px;
     color: #0f1e2e;
     font-size: 1.28em;
+	line-height: 1.7;
 }
 
 
@@ -425,7 +434,7 @@ body {
 /* الكلمات المفتاحية */
 .article-tags {
     margin: 16px 0;
-	width: 49%;
+	width: 45%;
 }
 
 .tags-title {
@@ -449,9 +458,9 @@ body {
     color: #136b99 ;
     padding: 4px 12px;
     border-radius: 20px;
-    font-size: 0.9rem;
-	font-weight:500;
-	 font-family: 'Tajawal', sans-serif;
+    font-size: 0.85rem;
+	font-weight:505;
+
 }
 
 
@@ -529,18 +538,18 @@ body {
 
 /* مشاركة المقال */
 .share-container {
-    background-color: #f5f8f9;
     background-image: url("../../images/333.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-	border-bottom: 10px solid #073c4c;
-	border-radius:30px 0 0 30px;
+	border-bottom: 4px solid #0094b8;
+	border-radius:30px 0 0 0;
 	 display: flex;
     flex-direction: column;
     align-items: center;  
     text-align: center;
 	margin-top:11px ;
+	padding-bottom:11px ;
 }
 
 .share-title {
@@ -667,7 +676,7 @@ body {
 
 
 .back-con {
-	width: 100%;
+    width: 100%;
 	display: flex;
 	margin:0 auto;
 	position:relative;
@@ -677,14 +686,20 @@ body {
 
 /* زر العودة */
 .back-btn {
-	width: 210px;	
+		display: none;	
+}
+
+/* زر العودة */
+.back-btn2 {
+	width: 100%;
+    height: 128px;
     align-self: flex-start;
 	justify-content: center;
     background:#0f1e2e;
     color: #fff;
 	border:none;
     padding: 9px 16px;
-    border-radius:10px;
+    border-radius:0 0 0 15px;
     font-size: 1.4rem;
     font-weight: 500;
 	text-shadow: 1px 1px 1px #00485e;
@@ -692,20 +707,21 @@ body {
     cursor: pointer;
     transition: var(--transition);
     display: flex;
+	flex-direction:column;
     align-items: center;
 	text-align: center;
     gap: 5px;
     text-decoration: none;
-	margin: 0 auto;
-	margin-top: 15px;
+	margin-top: 0;
 }
 
-.back-btn i{
-  font-size	: 1rem;
-  margin-left: 3px;
+.back-btn2 i{
+  font-size	: 1.7rem;
+  margin-top: 5px;
+  color: #0094b8;
 }	
 
-.back-btn:hover {
+.back-btn2:hover {
     background: #006077;
     color: #fff;
     transform: translateY(-4px);
@@ -1050,17 +1066,32 @@ body {
     }
 
 
-
-.back-con {
-	padding-top:150px;
-	padding-bottom:100px;
+.back-btn2 {
+	display :none;
 }
-
+	
 /* زر العودة */
 .back-btn {
-	width: 210px;	 
+	width: 210px;	
+    align-self: flex-start;
+	justify-content: center;
+    background:#0f1e2e;
+    color: #fff;
+	border:none;
     padding: 9px 16px;
+    border-radius:10px;
     font-size: 1.4rem;
+    font-weight: 500;
+	text-shadow: 1px 1px 1px #00485e;
+	 font-family: 'Tajawal', sans-serif;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+	text-align: center;
+    gap: 5px;
+    text-decoration: none;
+	margin: 0 auto;
 	margin-top: 15px;
 }
 
@@ -1068,6 +1099,13 @@ body {
   font-size	: 1rem;
   margin-left: 3px;
 }	
+
+.back-btn:hover {
+    background: #006077;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
 	
 	.mobile-share-btn {
     font-family: 'Tajawal', sans-serif;
@@ -1184,8 +1222,7 @@ body {
     display: none;
     position: fixed;
     right: 0;
-     bottom: 90px;
-    background-color: #f5f8f9;
+    bottom: 90px;
     background-image: url("../../images/333.png");
     background-size: cover;
     background-position: center;
@@ -1694,7 +1731,9 @@ body {
 	padding-left: 3px;
 }
 
-    
+.back-btn2 {
+	display :none;
+}   
 .back-con {
 	padding-top:10px;
 	margin-top:30px;
@@ -1788,12 +1827,12 @@ body {
     }
 
   .header1 {
-        height: 70px;
+        height: 80px;
         padding: 25px;
     }
 	
 .container1 h1 {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
 		line-height: 2;
     }
 	
@@ -1827,6 +1866,9 @@ body {
 
 .meta-item {   
     font-size: 0.75rem;
+	display: flex;
+    align-items: center;
+    gap: 4px;
 
 }
 
@@ -1836,6 +1878,9 @@ body {
 
 .category-item {
     font-size: 0.75rem;
+	display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
   .article-intro {
@@ -1850,6 +1895,7 @@ body {
     margin-bottom: 14px;
     padding-bottom: 8px;   
 	padding:5px; 
+	font-weight:505; 
 }
 
 .article-content h1::before {
@@ -1859,10 +1905,11 @@ body {
 }
 
 .article-content h2 {
-  font-size: 1.1em;   
+  font-size: 1.05em;   
     padding-right: 10px  ;
      padding: 3px  ;	
 	line-height:2;
+	font-weight:505;
 }
 
 .article-content h2::before {
@@ -1887,8 +1934,8 @@ body {
 .article-content p {
         font-size: 1.15em;
         margin-right: 18px;
-        margin-left: 18px;
-		line-height: 2;
+        margin-left: 15px;
+		line-height: 2.1;
 		margin-top: 10px;
     }
 
@@ -1991,12 +2038,13 @@ body {
 
  .sidebar-section {
         position: static;
-        max-width: 90%;
-        min-width: 80%;
+        max-width: 95%;
+        min-width: 85%;
         padding-left: 0;
         padding-top: 30px;
         height: auto;
 		margin: 0 auto;
+		opacity: 0.97;
     }
 
     .share-container {
@@ -2013,7 +2061,7 @@ body {
 
     .share-buttons {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 25px;
     }
 
     
@@ -2029,14 +2077,16 @@ body {
 	height: 39px ;
 	width: 130px ;   
     font-size: 0.9rem;
-    font-weight: 400;  
+    font-weight: 500;  
 }
 
 .share-btn i{
 	font-size: 1rem;
 	padding-left: 3px;
 }
-
+.back-btn2 {
+	display :none;
+}
     
 .back-con {
 	padding-top:10px;
@@ -2089,10 +2139,10 @@ body {
     
     .popup-share-btn,
     .popup-share-btn2 {
-        padding: 7px;
-        height: 30px;
+        padding: 10px;
+        height: 35px;
         font-size: 0.75rem;
-        gap: 7px;
+        gap: 10px;
     }
     
     .popup-share-btn i,
