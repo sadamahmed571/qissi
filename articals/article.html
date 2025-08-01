@@ -6,6 +6,8 @@
     <title>المقالات - عرض المقال</title>
     
     <!-- FAslider -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/slider-styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -134,7 +136,7 @@
                 <div class="share-title"> ｢  مشاركة المقال  」   </div>
                 
                 <!-- مشاركة النص -->
-                <div class="share-section">
+                <div class="share-section" id="shareTextOption">
                     <div class="share-section-title"><i class="fas fa-share"></i>  ｢  شارك نص المقال مباشرة  」   </div>
                     <div class="share-buttons">
                         <button class="share-btn copy-text-btn" onclick="copyArticleText()">
@@ -179,9 +181,13 @@
                     </div>
                 </div>
             </div> 
-
-       </div> 
-	</div>
+            <button class="back-btn2" onclick="window.location.href='articals.html'">    
+     العودة لصفحة المقالات
+     <i class="fa fa-hand-pointer-o"></i>
+	</button>
+	</div>   
+   </div> 
+</div>
 	
 	
 	
@@ -247,8 +253,6 @@
 
     <!-- النافذة المنبثقة للمشاركة -->
     <div class="mobile-share-popup" id="mobileSharePopup">
-       
-        
         <div class="popup-options">
             <button class="popup-option" id="shareTextOption">
                 <i class="fas fa-file-text"></i> ｢  شارك نص المقال مباشرة  」   
@@ -291,21 +295,10 @@
         </div>
     </div>
 	
-<script>	
-document.addEventListener('DOMContentLoaded', () => {
-    const progressBar = document.getElementById('progressBar');
-    const articleSection = document.querySelector('.article-section');
 
-    articleSection.addEventListener('scroll', () => {
-        const scrollTop = articleSection.scrollTop;
-        const scrollHeight = articleSection.scrollHeight - articleSection.clientHeight;
-        const progress = (scrollTop / scrollHeight) * 100;
-        progressBar.style.width = `${progress}%`;
-    });
-});
-</script>	
     <!-- ملفات JavaScript -->
-    <script src="js/articles-data.js"></script>
+    <script src="js/reading-progress.js"></script>
+	<script src="js/articles-data.js"></script>
 	<script src="js/pop.js"></script>	
     <script src="js/article-functions.js"></script>
 	<script src="js/ImportantArticalsData.js"></script>
