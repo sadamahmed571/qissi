@@ -1,6 +1,7 @@
 // Global variables
 let currentArticleId = null;
 let currentArticleData = null;
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
     currentArticleId = getArticleIdFromURL() || getStoredArticleId();
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupScrollProgress();
     setupButtonEffects();
 });
+
 // Load article data and update page
 function loadArticle(articleId) {
     // Try to get article from localStorage first
@@ -23,6 +25,8 @@ function loadArticle(articleId) {
     updateElementText('articleTitle', currentArticleData.title, 'بدون عنوان');
     updateElementText('articleDate', currentArticleData.date, 'غير محدد');
     updateElementText('articleCategory', currentArticleData.category, 'غير محدد');
+    // Although not in the original code, let's add an element for the author to be consistent
+    updateElementText('articleAuthor', currentArticleData.author, 'د.عبدالله القيسي ');
     updateElementText('articleIntro', currentArticleData.intro, 'لا يوجد مقدمة');
     document.getElementById('articleContent').innerHTML = currentArticleData.content || 'لا يوجد محتوى';
     // Update reading time
@@ -36,10 +40,15 @@ function loadArticle(articleId) {
     // Reset progress bar
     resetProgressBar();
 }
+
 // Helper function to update element text
 function updateElementText(elementId, value, fallback) {
-    document.getElementById(elementId).textContent = value || fallback;
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.textContent = value || fallback;
+    }
 }
+
 // Update tags
 function updateTags(tags) {
     const tagsList = document.getElementById('tagsList');
@@ -53,34 +62,28 @@ function updateTags(tags) {
         });
     }
 }
+
 // Update references
 function updateReferences(references) {
     const referencesList = document.getElementById('referencesList');
-
     if (referencesList && Array.isArray(references)) {
-        // إزالة المحتوى القديم
         referencesList.innerHTML = '';
-
-        // التحقق هل هناك مراجع فعلاً
         if (references.length > 0) {
-            // إنشاء عنصر العنوان فقط إذا كانت هناك مراجع
             const heading = document.createElement('h3');
             heading.className = 'references-title';
-            heading.innerHTML = '<i class="fa fa-book" aria-hidden="true"></i> المراجع :';
+            heading.innerHTML = '<i class="fa fa-book" aria-hidden="true"></i> مراجع :';
             referencesList.appendChild(heading);
-
-            // إنشاء قائمة المراجع
             const ul = document.createElement('ul');
             references.forEach(ref => {
                 const li = document.createElement('li');
                 li.textContent = ref;
                 ul.appendChild(li);
             });
-
             referencesList.appendChild(ul);
         }
     }
 }
+
 // Update navigation buttons
 function updateNavigationButtons() {
     const prevArticle = getPreviousArticle(currentArticleId);
@@ -96,21 +99,25 @@ function updateNavigationButtons() {
         if (nextArticle) nextBtn.querySelector('span').textContent = nextArticle.title;
     }
 }
+
 // Navigate between articles
 function navigateArticle(direction) {
     const targetArticle = direction === 'next' ? getNextArticle(currentArticleId) : getPreviousArticle(currentArticleId);
     if (targetArticle && targetArticle.id !== currentArticleId) {
-        const newUrl = `${window.location.pathname}?id=${targetArticle.id}`;
+        // **MODIFIED:** Update URL to reflect the new article ID
+        const newUrl = `${window.location.pathname.split('?')[0]}?id=${targetArticle.id}`;
         window.history.pushState({ articleId: targetArticle.id }, '', newUrl);
         currentArticleId = targetArticle.id;
         loadArticle(currentArticleId);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
+
 // Go back
 function goBack() {
     window.history.length > 1 ? window.history.back() : (window.location.href = 'articles.html');
 }
+
 // Setup scroll progress
 function setupScrollProgress() {
     window.addEventListener('scroll', () => {
@@ -123,6 +130,7 @@ function setupScrollProgress() {
         }
     });
 }
+
 // Update progress bar
 function updateProgressBar() {
     const article = document.querySelector('.article-container');
@@ -142,11 +150,13 @@ function updateProgressBar() {
     }
     progressBar.style.width = `${Math.max(0, Math.min(100, progress))}%`;
 }
+
 // Reset progress bar
 function resetProgressBar() {
     const progressBar = document.getElementById('progressBar');
     if (progressBar) progressBar.style.width = '0%';
 }
+
 // Calculate reading time
 function updateReadingTime() {
     if (!currentArticleData) return;
@@ -156,16 +166,26 @@ function updateReadingTime() {
     const readingTime = Math.ceil(wordCount / wordsPerMinute);
     updateElementText('readingTime', `${readingTime} دقائق`, 'غير محدد');
 }
-// Copy article text
+
+// **MODIFIED:** Copy article text with additional info and formatting
 function copyArticle() {
     if (!currentArticleData) return;
-    const fullText = `${currentArticleData.title || ''}\n\n${currentArticleData.intro || ''}\n\n${currentArticleData.content?.replace(/<[^>]*>/g, '') || ''}\n\nبقلم: ${currentArticleData.author || ''}`;
+    const title = document.getElementById('articleTitle')?.textContent || 'بدون عنوان';
+    const category = document.getElementById('articleCategory')?.textContent || 'غير محدد';
+    const author = getArticleAuthor();
+    const intro = document.getElementById('articleIntro')?.textContent || 'لا يوجد مقدمة';
+    const content = currentArticleData.content?.replace(/<[^>]*>/g, '') || '';
+    
+    const fullText = `• ${title} •\n\n${intro}\n\n${content}\n\nمجال المقال: ${category}\nبقلم: ${author}`;
+    
     copyToClipboard(fullText, 'تم نسخ المقال بنجاح!');
 }
+
 // Copy article link
 function copyLink() {
     copyToClipboard(window.location.href, 'تم نسخ الرابط بنجاح!');
 }
+
 // Helper function for clipboard copying
 function copyToClipboard(text, successMessage) {
     navigator.clipboard.writeText(text).then(() => {
@@ -180,27 +200,42 @@ function copyToClipboard(text, successMessage) {
         showToast(successMessage);
     });
 }
+
 // Share on social media
 function shareOnFacebook() {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(currentArticleData?.title || '');
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${title}`, '_blank', 'width=600,height=400');
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${title}`, '_blank', 'width=600,height=400' );
 }
+
 function shareOnWhatsApp() {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(currentArticleData?.title || '');
-    window.open(`https://wa.me/?text=${title}%0A%0A${url}`, '_blank');
+    window.open(`https://wa.me/?text=${title}%0A%0A${url}`, '_blank' );
 }
+
 function shareOnTwitter() {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(currentArticleData?.title || '');
-    window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400' );
 }
+
+// **MODIFIED:** Share full formatted text on Telegram
 function shareOnTelegram() {
-    const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(currentArticleData?.title || '');
-    window.open(`https://t.me/share/url?url=${url}&text=${title}`, '_blank');
+    if (!currentArticleData) return;
+    const title = document.getElementById('articleTitle')?.textContent || 'بدون عنوان';
+    const category = document.getElementById('articleCategory')?.textContent || 'غير محدد';
+    const author = getArticleAuthor();
+    const intro = document.getElementById('articleIntro')?.textContent || 'لا يوجد مقدمة';
+    const content = currentArticleData.content?.replace(/<[^>]*>/g, '') || '';
+    const url = window.location.href;
+
+    const textToShare = `• ${title} •\n\n${intro}\n\n${content}\n\nمجال المقال: ${category}\nبقلم: ${author}\n\nرابط المقال:\n${url}`;
+    
+    const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(url )}&text=${encodeURIComponent(textToShare)}`;
+    window.open(telegramUrl, '_blank');
 }
+
 // Show toast notification
 function showToast(message) {
     const toast = document.getElementById('toast');
@@ -210,6 +245,7 @@ function showToast(message) {
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
+
 // Handle URL history changes
 window.addEventListener('popstate', (event) => {
     if (event.state?.articleId) {
@@ -218,6 +254,7 @@ window.addEventListener('popstate', (event) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
+
 // Setup button effects
 function setupButtonEffects() {
     const buttons = document.querySelectorAll('.share-btn, .nav-btn, .back-btn');
@@ -228,27 +265,42 @@ function setupButtonEffects() {
         button.addEventListener('mouseup', () => button.style.transform = 'translateY(-2px) scale(1)');
     });
 }
+
 // Placeholder for getting article ID from localStorage
 function getStoredArticleId() {
     const article = JSON.parse(localStorage.getItem('currentArticle'));
     return article?.id || null;
 }
+
 // Placeholder functions (to be implemented based on your backend)
 function getArticleIdFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id') || null;
 }
+
+// **NEW:** Helper function to get author name from the DOM
+function getArticleAuthor() {
+    // Assuming you have an element with id="articleAuthor"
+    const authorElement = document.getElementById('articleAuthor');
+    return authorElement ? authorElement.textContent : (currentArticleData?.author || 'غير محدد');
+}
+
 function getArticleData(articleId) {
     // Implement your article fetching logic here
+    // Example:
+    // if (articleId === '1') return { id: '1', title: 'Article 1', ... };
     return null;
 }
+
 function getPreviousArticle(articleId) {
     // Implement your previous article logic
     return null;
 }
+
 function getNextArticle(articleId) {
     // Implement your next article logic
     return null;
 }
+
 // Optimize scroll performance
 let ticking = false;
